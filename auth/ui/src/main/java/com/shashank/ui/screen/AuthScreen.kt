@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -53,7 +54,6 @@ fun AuthenticationScreen(navigation: () -> Unit, navController: NavHostControlle
     val isRegisterScreen = remember {
         mutableStateOf(false)
     }
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -160,7 +160,7 @@ fun AuthenticationScreen(navigation: () -> Unit, navController: NavHostControlle
                 val annotatedString = buildAnnotatedString {
                     append(if (isRegisterScreen.value) "Already have an account?" else "Don’t have account?")
                     withStyle(style = SpanStyle(PrimaryColor)) {
-                        append(if (isRegisterScreen.value) "Login " else " Sign up")
+                        append(if (isRegisterScreen.value) " Login " else " Sign up")
                     }
                 }
 
@@ -182,4 +182,12 @@ fun AuthenticationScreen(navigation: () -> Unit, navController: NavHostControlle
 }
 
 
+@Composable
+fun KeyboardAware(
+    content: @Composable () -> Unit
+) {
+    Box(modifier = Modifier.imePadding()) {
+        content()
+    }
+}
 

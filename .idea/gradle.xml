@@ -18,6 +18,10 @@
             <option value="$PROJECT_DIR$/common/composable" />
             <option value="$PROJECT_DIR$/common/theme" />
             <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/dashboard" />
+            <option value="$PROJECT_DIR$/dashboard/data" />
+            <option value="$PROJECT_DIR$/dashboard/domain" />
+            <option value="$PROJECT_DIR$/dashboard/ui" />
             <option value="$PROJECT_DIR$/onBoarding" />
             <option value="$PROJECT_DIR$/remote" />
           </set>

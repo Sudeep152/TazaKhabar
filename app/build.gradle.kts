@@ -79,7 +79,6 @@ dependencies {
     implementation (libs.androidx.hilt.navigation.compose)
 
 
-    implementation(project(":auth:ui"))
     implementation(project(":core"))
     implementation(project(":common:theme"))
 

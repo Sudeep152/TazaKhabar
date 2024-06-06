@@ -10,5 +10,6 @@ class Routes {
     @Serializable
     object AuthScreen
     @Serializable
-    object HomeScreen
+    object DashboardScreen
+
 }

@@ -100,17 +100,11 @@ fun SingleTemplateCard(
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = FIFTEEN_DP)
     ) {
-        Box(
-            Modifier
-                .blur(if (pagerState.settledPage == page) 0.dp else 60.dp)
-        )
-        {
             AsyncImage(
                 model = item.image,
                 contentDescription = null,
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop
             )
-        }
     }
 }

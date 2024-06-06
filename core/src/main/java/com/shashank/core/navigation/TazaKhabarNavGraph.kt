@@ -10,8 +10,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.shashank.core.routes.Routes
+import com.shashank.dashboard.ui.screen.DashboardScreen
 import com.shashank.tazakhabar.onboarding.screen.OnBoardingScreen
 import com.shashank.ui.screen.AuthenticationScreen
+import com.shashank.ui.screen.KeyboardAware
 
 @Composable
 fun TazaKhabarNavGraph() {
@@ -19,27 +21,27 @@ fun TazaKhabarNavGraph() {
     NavHost(
         navController = navController, startDestination = Routes.OnBoardingScreen,
         enterTransition = {
-            fadeIn(animationSpec = tween(700)) + slideIntoContainer(
+            fadeIn(animationSpec = tween(500)) + slideIntoContainer(
                 AnimatedContentTransitionScope.SlideDirection.Left,
-                tween(700)
+                tween(500)
             )
         },
         exitTransition = {
-            fadeOut(animationSpec = tween(700)) + slideOutOfContainer(
+            fadeOut(animationSpec = tween(500)) + slideOutOfContainer(
                 AnimatedContentTransitionScope.SlideDirection.Left,
-                tween(700)
+                tween(500)
             )
         },
         popEnterTransition = {
-            fadeIn(animationSpec = tween(700)) + slideIntoContainer(
+            fadeIn(animationSpec = tween(500)) + slideIntoContainer(
                 AnimatedContentTransitionScope.SlideDirection.Right,
-                tween(700)
+                tween(500)
             )
         },
         popExitTransition = {
-            fadeOut(animationSpec = tween(700)) + slideOutOfContainer(
+            fadeOut(animationSpec = tween(500)) + slideOutOfContainer(
                 AnimatedContentTransitionScope.SlideDirection.Right,
-                tween(700)
+                tween(500)
             )
         },
     ) {
@@ -47,10 +49,15 @@ fun TazaKhabarNavGraph() {
             OnBoardingScreen(navigation = { navController.navigate(Routes.AuthScreen) })
         }
         composable<Routes.AuthScreen> {
-            AuthenticationScreen(navigation = { navController.navigate(Routes.HomeScreen) },navController)
+            KeyboardAware {
+                AuthenticationScreen(
+                    navigation = { navController.navigate(Routes.DashboardScreen) },
+                    navController
+                )
+            }
         }
-        composable<Routes.HomeScreen> {
-            Text(text = "Home")
+        composable<Routes.DashboardScreen> {
+            DashboardScreen()
         }
     }
 }

@@ -58,4 +58,5 @@ dependencies {
 
     implementation(project(":onBoarding"))
     implementation(project(":auth:ui"))
+    implementation(project(":dashboard:ui"))
 }
